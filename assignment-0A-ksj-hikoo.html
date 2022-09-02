@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세미나0 과제</title>
+    <style>
+        .wrap{
+           
+            width: 100vh;
+            height: 90vh;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .top{
+            background-color: rgb(204, 255, 251);
+            border-bottom: solid 1px;
+            border-color: black;
+            width: 100%;
+            margin: 30px 30px 30px 30px;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .menu{
+            margin: 30px 30px 30px 30px;
+            padding: 0px 15px 0px 15px;
+            border: dashed 2px;
+            border-radius: 10px;
+            width: 40%;
+            height: 100%;
+            text-align: center;
+            overflow: auto;
+        }
+
+
+        #maintext{
+            text-decoration-line : none;
+            color: black;
+            font-size: x-large;
+            margin-left: 15px;
+        }
+
+        #manual{ 
+            border-radius: 50%;
+            margin-left: auto;
+            
+        }
+
+        
+        #addmenu{
+            border-radius: 5px;
+            height: 20px;
+            width: 200px;
+        }
+
+        #addbutton{
+            margin-left: 5px;
+        }
+        
+        #menuboxtitle{
+            font-size: larger;
+        }
+
+    </style>
+    <script>
+        function addmenu() {
+            const addtext = document.getElementById('addmenu').value;
+            const menubox = document.getElementById('menubox');
+    
+            if(addtext === ""){alert("값을 입력하세요")}
+            else if(addtext.length > 10){alert("메뉴 이름을 10글자이하로 입력해주세요")}
+                else {menubox.innerHTML += `<p>${addtext}</p><hr>`}
+    
+        }
+
+        function enterkey() {
+            if (window.event.keyCode == 13){
+                addmenu();
+            }
+        }
+
+        function alertmanual() {
+            alert("메뉴 이름에 값을 입력한 뒤 엔터 또는 추가 버튼을 누르면 \n메뉴에 해당 값이 추가됩니다.")
+        }
+
+        function inputfocus(){
+            document.getElementById("addmenu").focus()
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+        <a href="https://wafflestudio.com" ><img id="wafflelogo" src="https://raw.githubusercontent.com/wafflestudio/seminar-2022/main/waffle_logo.png" width="100px"></a>
+        <a href="https://wafflestudio.com" id="maintext">와플스튜디오 메뉴 관리</a>
+        <button id="manual" onclick="alertmanual()">?</button>
+        </div>
+    <div class="menu" id="menubox">
+        <p id="menuboxtitle">메뉴목록</p>
+        <hr>
+    </div>
+    <div class="inputtap">
+        <b onclick="inputfocus()">메뉴 이름 : </b><input onkeyup="enterkey()" type="text" id="addmenu" placeholder="여기에 메뉴 이름을 입력하세요"><button id="addbutton" onclick="addmenu()" >추가</button>
+    </div>
+    </div>
+</body>
+
+</html>
